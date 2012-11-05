@@ -182,7 +182,7 @@ class HttpProtocol( Cache.File ):
       else:
         self.Response = Response.DataResponse
 
-    elif self.__status == 304 and self.full():
+    elif self.__status in (301, 302, 304) and self.full():
 
       self.open_full()
       self.Response = Response.DataResponse
